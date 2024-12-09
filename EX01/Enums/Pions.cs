@@ -18,3 +18,4 @@ namespace EX01.Enums
 		Chaussure
 	}
 
+}
