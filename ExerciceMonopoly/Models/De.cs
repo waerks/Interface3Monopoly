@@ -13,7 +13,7 @@ namespace ExerciceMonopoly.Models
 		private static int _valeurMax = 6;
 		private static Random _rand = new Random();
 
-		// Les méthodes publiques
+		// Les propriétés publiques
 		public static int ValeurMin
 		{
 			get { return _valeurMin; }
@@ -45,6 +45,8 @@ namespace ExerciceMonopoly.Models
 				if (value <= _valeurMin) _valeurMin = value - 1;
 			}
 		}
+
+		// Les méthodes publiques
 		public static int[] Lancer(int nbDes)
 		{
 			// Stocker les résultats des dés
