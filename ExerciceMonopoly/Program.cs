@@ -13,19 +13,19 @@ namespace ExerciceMonopoly
 			// Définir un joueur
 			Joueur joueur1 = new Joueur() 
 			{
-				nom = "Anaïs",
-				pion = Pions.Voiture
+				Nom = "Anaïs",
+				Pion = Pions.Voiture
 			};
 
-			Console.WriteLine($"{joueur1.nom} c'est votre tour! Bougez le pion {joueur1.pion.GetEmoji()} de la case {joueur1.position}!");
+			Console.WriteLine($"{joueur1.Nom} c'est votre tour! Bougez le pion {joueur1.Pion.GetEmoji()} de la case {joueur1.Position}!");
 
 			// Si le Joueur a fait un double
 			if( joueur1.Avancer())
 			{
-				Console.WriteLine($"Bravo {joueur1.nom}! Vous avez fait un double!");
+				Console.WriteLine($"Bravo {joueur1.Nom}! Vous avez fait un double!");
 			}
 
-			Console.WriteLine($"{joueur1.nom} vous êtes à présent sur la case {joueur1.position}!");
+			Console.WriteLine($"{joueur1.Nom} vous êtes à présent sur la case {joueur1.Position}!");
 		}
 	}
 }
