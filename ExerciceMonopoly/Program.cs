@@ -107,6 +107,7 @@ namespace ExerciceMonopoly
 
 			// Lancer le tour
 			Joueur joueurCourant = monopolyI3[Pions.Chapeau];
+			joueurCourant = joueurCourant + 200;
 
 			Console.WriteLine();
 			Console.WriteLine("----- 🎲 -----");
@@ -127,7 +128,7 @@ namespace ExerciceMonopoly
 			Console.WriteLine($"Bienvenue sur la case 📫 {caseJoueur.Nom}.");
 
 			// Le Joueur achète la case sur laquelle il est
-			caseJoueur.Acheter(joueurCourant);
+			CasePropriete[] proprietesJoueur = joueurCourant + caseJoueur;
 
 			Console.WriteLine();
 			Console.WriteLine("----- 💰 -----");

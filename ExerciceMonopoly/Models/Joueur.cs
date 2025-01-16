@@ -71,5 +71,19 @@ namespace ExerciceMonopoly.Models
 
 			_proprietes.Add(propriete);
 		}
+
+		public static Joueur operator +(Joueur left, int right)
+		{
+			// Permet d'additionner le montant pour l'augmenter
+			left.EtrePaye(right);
+			return left;
+		}
+
+		public static CasePropriete[] operator +(Joueur left, CasePropriete right)
+		{
+			// Permet de diviser le montant pour le diminuer
+			right.Acheter(left);
+			return left.Proprietes;
+		}
 	}
 }
