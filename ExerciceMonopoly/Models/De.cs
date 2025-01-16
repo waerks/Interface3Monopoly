@@ -8,7 +8,7 @@ namespace ExerciceMonopoly.Models
 {
 	public static class De
 	{
-		// Les variables membres
+		// Les variables privées
 		private static int _valeurMin = 1;
 		private static int _valeurMax = 6;
 		private static Random _rand = new Random();

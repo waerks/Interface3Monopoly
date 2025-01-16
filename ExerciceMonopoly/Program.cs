@@ -10,6 +10,8 @@ namespace ExerciceMonopoly
 			// Configurer l'encodage UTF-8 pour la console
 			Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+			/* Exercice n°1 à n°3
+			 * 
 			// Définir un joueur
 			Joueur joueur1 = new Joueur("Anaïs", Pions.Voiture);
 
@@ -73,6 +75,63 @@ namespace ExerciceMonopoly
 			{
 				Console.WriteLine($"--- 📫 {prop.Nom} {prop.Couleur.GetEmoji()}");
 			}
+			*/
+
+			// lancer le Jeu
+
+			Jeu monopolyI3 = new Jeu 
+				([
+					new CasePropriete("Patio", Couleurs.Marron, 20),
+					new CasePropriete("Rez de chaussé Bât. G.", Couleurs.Marron, 20),
+					new CasePropriete("Rez de chaussé Bât. D.", Couleurs.Marron, 22),
+					new CasePropriete("Ascenceur Bât. D.", Couleurs.BleuCiel, 26),
+					new CasePropriete("Ascenceur Bât. G.", Couleurs.BleuCiel, 26),
+					new CasePropriete("Toilette du RdC", Couleurs.BleuCiel, 28),
+					new CasePropriete("Classe Games", Couleurs.Violet, 32),
+					new CasePropriete("Classe WEB", Couleurs.Violet, 32),
+					new CasePropriete("Classe WAD", Couleurs.Violet, 36)
+				]);
+
+			// Ajouter le Joueurs
+			monopolyI3.AjouterJoueur("Marwa", Pions.Dino);
+			monopolyI3.AjouterJoueur("Dorothée", Pions.Voiture);
+			monopolyI3.AjouterJoueur("Leslie", Pions.Chien);
+			monopolyI3.AjouterJoueur("Mélusine", Pions.DeACoudre);
+			monopolyI3.AjouterJoueur("Emilie", Pions.Cuirasse);
+			monopolyI3.AjouterJoueur("Jessica", Pions.Fer);
+			monopolyI3.AjouterJoueur("Charifa", Pions.Chapeau);
+			monopolyI3.AjouterJoueur("Anaïs", Pions.Brouette);
+			monopolyI3.AjouterJoueur("Jenny", Pions.Chaussure);
+			monopolyI3.AjouterJoueur("Amalia", Pions.Chien);
+			monopolyI3.AjouterJoueur("Debby", Pions.Dino);
+
+			// Lancer le tour
+			Joueur joueurCourant = monopolyI3[Pions.Chapeau];
+
+			Console.WriteLine();
+			Console.WriteLine("----- 🎲 -----");
+			Console.WriteLine($"C'est au tour de {joueurCourant.Nom} {joueurCourant.Pion.GetEmoji()} !");
+
+			// Faire avancer le joueur
+			joueurCourant.Avancer();
+
+			Console.WriteLine();
+			Console.WriteLine("----- 📍 -----");
+			Console.WriteLine($"{joueurCourant.Pion.GetEmoji()} avancez à la case {joueurCourant.Position}.");
+
+			// Positionner le Joueur
+			CasePropriete caseJoueur = monopolyI3[joueurCourant.Position];
+
+			Console.WriteLine();
+			Console.WriteLine("----- ℹ️ -----");
+			Console.WriteLine($"Bienvenue sur la case 📫 {caseJoueur.Nom}.");
+
+			// Le Joueur achète la case sur laquelle il est
+			caseJoueur.Acheter(joueurCourant);
+
+			Console.WriteLine();
+			Console.WriteLine("----- 💰 -----");
+			Console.WriteLine($"Votre solde est de {joueurCourant.Solde}💲.");
 		}
 	}
 }
