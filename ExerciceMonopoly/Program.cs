@@ -125,7 +125,7 @@ namespace ExerciceMonopoly
 
 			Console.WriteLine();
 			Console.WriteLine("----- ℹ️ -----");
-			Console.WriteLine($"Bienvenue sur la case 📫 {caseJoueur.Nom}.");
+			Console.WriteLine($"Bienvenue sur la case 📫 {caseJoueur.Nom} {caseJoueur.Couleur.GetEmoji()}.");
 
 			// Le Joueur achète la case sur laquelle il est
 			CasePropriete[] proprietesJoueur = joueurCourant + caseJoueur;
@@ -133,6 +133,39 @@ namespace ExerciceMonopoly
 			Console.WriteLine();
 			Console.WriteLine("----- 💰 -----");
 			Console.WriteLine($"Votre solde est de {joueurCourant.Solde}💲.");
+
+			// Définri la case de départ
+			Case caseDepart = new Case("📫 Case départ");
+
+			// Ajout d'une case
+			CasePropriete propriete1 = new CasePropriete("Propriété 1", Couleurs.Marron, 20);
+
+			// Mettre les joueurs sur la case de départ
+			caseDepart.AjouterVisiteur(joueurCourant);
+			caseDepart.AjouterVisiteur(monopolyI3[Pions.Dino]);
+
+			Console.WriteLine();
+			Console.WriteLine("----- 📍 -----");
+			Console.WriteLine($"Les joueurs présent sur la {caseDepart.Nom} sont :");
+
+			foreach (Joueur visiteur in caseDepart.Visiteurs)
+			{
+				Console.WriteLine($"\t- {visiteur.Pion.GetEmoji()} ({visiteur.Nom})");
+			}
+
+			// Faire avancer le joueur courant
+			caseDepart.RetirerVisiteur(joueurCourant);
+
+			propriete1.AjouterVisiteur(joueurCourant);
+
+			Console.WriteLine();
+			Console.WriteLine("----- ℹ️ -----");
+			Console.WriteLine($"Les joueurs présent sur la {propriete1.Nom} sont :");
+
+			foreach (Joueur visiteur in propriete1.Visiteurs)
+			{
+				Console.WriteLine($"\t- {visiteur.Pion.GetEmoji()} ({visiteur.Nom})");
+			}
 		}
 	}
 }

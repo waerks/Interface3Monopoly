@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace ExerciceMonopoly.Models
 {
-	public class CasePropriete
+	public class CasePropriete : Case
 	{
 		// Les propriétés publiques
 		public string Nom { get; }
@@ -17,7 +17,7 @@ namespace ExerciceMonopoly.Models
 		public Joueur Proprietaire { get; private set; }
 
 		// Les constructeurs
-		public CasePropriete(string nom, Couleurs couleur, int prix)
+		public CasePropriete(string nom, Couleurs couleur, int prix) : base(nom)
 		{
 			Nom = nom;
 			Couleur = couleur;
